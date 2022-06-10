@@ -61,7 +61,7 @@ function SlideShow() {
                                 <p>{slide.desSlide}</p>
                             </div>
                             <p>
-                                <img src={slide.url} alt="" />
+                                <img src={slide.url} alt={slide.titleSlide} />
                             </p>
                         </div>
                     );
