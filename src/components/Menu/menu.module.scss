@@ -1,0 +1,109 @@
+.nav {
+    &__list {
+        display: flex;
+        align-items: center;
+        li {
+            a {
+                display: block;
+                padding: 5px 20px;
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 16px;
+                &:hover {
+                    color: #e8645a;
+                }
+            }
+
+            &:last-child {
+                a {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.hamburger-input {
+    opacity: 0;
+    display: none;
+}
+
+.hamburger-input:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+}
+.hamburger-input:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+.hamburger-input:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+.hamburger-input:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+}
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+
+    & > span,
+    & > span::before,
+    & > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #616161;
+        transition-duration: 0.25s;
+    }
+
+    & > span::before {
+        content: "";
+        top: -8px;
+    }
+
+    & > span::after {
+        content: "";
+        top: 8px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        position: fixed;
+        left: 0;
+        top: 56px;
+        width: 100vw;
+        z-index: 10;
+        transition: 0.3s;
+        transform: translateX(100%);
+
+        &.active {
+            transform: translateX(0);
+        }
+    }
+
+    .nav {
+        &__list {
+            flex-direction: column;
+            align-items: flex-end;
+            background-color: #333;
+            li {
+                a {
+                    padding: 10px 20px;
+                }
+                &:last-child a {
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}
